@@ -1,0 +1,43 @@
+
+
+<scroll-view class='main_scrollView'>
+
+      <view class='topContainerView,shopBannerImageSizeToFitStyle' bindtap='checkUserAccountSumInfo'>
+            <image class='userIconStyle' src='{{daoGouBaoBaseInfoModel.Avatar}}'></image>
+            <view class='userNameStyle'>{{daoGouBaoBaseInfoModel?daoGouBaoBaseInfoModel.NickName:'未登录'}}</view>
+            <view class='userScoreStyle'>{{daoGouBaoBaseInfoModel.Point?daoGouBaoBaseInfoModel.Point:'0'}}积分</view>
+      </view>
+
+      <view class='middleContainerView'>
+            <view class='allMineOrderS'>
+               <view class='ToptitleIndexStyle'>我的订单</view>
+               <view style='width:38px;'>全部</view>
+               <image mode='scaleToFill' class='nextImage' src='../../images/Statistics_ic_next.png'></image>
+               <view class='lineCaverView'></view>
+            </view>
+
+            <view class='middleActionContainerView'>
+              <block wx:for="{{middleCategoryS}}" wx:key="*this" wx:for-index="idx">
+                  <view class='middleActionItemContainer'>
+                      <image class='middleActionItemIcon' mode='scaleToFit' src='{{middleCategoryIconS[idx]}}'></image>
+                      <view class='middleActionItemTitle'>{{item}}</view>
+                  </view>
+              </block>
+            </view>
+      </view>
+
+       <view class='bottomCaver'></view> 
+
+       <view>
+          <block wx:for="{{items}}" wx:key="*this" wx:for-index="idx">
+            <view class='bottomItemContainer'>
+
+                  <view class='titleIndexStyle'>{{item}}</view>
+                  <image mode='scaleToFill' class='nextImage' src='../../images/Statistics_ic_next.png'></image>
+            <view class='lineCaverView'></view>
+            </view>
+          </block>
+     </view>
+
+
+</scroll-view>

@@ -1,0 +1,43 @@
+
+
+<scroll-view class="product_search_container" scroll-y='true' bindscrolltolower='loadDataAction'>
+      <view class='product_search_Input_Container'>
+            <view class='product_search_input_Container_left'>
+                <image src='../../../images/login_btn_see.png' class='category_search_Container_icon'></image>
+                <input  bindinput="bindinputAction" placeholder="请输入商品" confirm-type="search" type="text" class='product_search_inputClass' value="{{userSearchStr}}"/>
+            </view>
+            <view class='product_search_view' bindtap='userSearchWithParam'>搜索</view>
+      </view>
+
+      <view style='background: white;width:100%;'>
+            <view style='font-size: 12px;color: #333333;text-align: left;line-height: 30px;margin-left: 10px;font-weight: lighter; background: white;width:100%;'>推荐搜索</view>
+      <view class='line_caver'></view>
+
+      <block wx:for="{{recommandArr}}" wx:key="*this" wx:for-index="idx">
+            <view class='product_recommand_search_container' style='background: white' bindtap='userSelectRecommandSearch' data-searchinfo='{{item}}'>{{item}}
+            </view>
+            <view class='line_caver'></view>
+      </block>
+      </view>
+
+
+      <view class='product_item_list_container'>
+          <block wx:for="{{ProductLists}}" wx:key="{{ID}}" wx:for-index="idx">
+              <view class='ClassifyProductListPage_item' bindtap='userCheckProductDetailAction' data-itemModel='{{item}}'>
+                  <view class='ClassifyProductListPage_item_subContainer'>
+                                        <image class='ClassifyProductListPage_item_image' src='{{item.Picture}}' mode='scaleToFill'></image>
+                  <view class='ClassifyProductListPage_item_Score'>
+                      <view class='ClassifyProductListPage_item_Score_caver'></view>
+                      <view class='ClassifyProductListPage_item_Score_sup'>
+                        <text class='ClassifyProductListPage_item_Score_text'>{{item.TagWeight == 2 ? "不可积分":"可积分"}}</text>
+                       <text class='ClassifyProductListPage_item_Score_subTitle'>{{item.Name}}
+                        </text>
+                        <view class='ClassifyProductListPage_item_ScoreNumber_Container'><text class='ClassifyProductListPage_item_ScoreNumber'>{{item.PointPrice + '积分'}}</text></view>
+                      </view>
+                  </view>
+                  </view>
+              </view>
+          </block>
+      </view>
+
+</scroll-view>
